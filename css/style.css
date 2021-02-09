@@ -10,10 +10,15 @@ body {
 a {
     text-decoration: none;
 }
+.row
+{
+    padding-top:10px;
+    padding-bottom: 10px;
+}
 
 .top-nav {
     background: #004730;
-    overflow: hidden;
+    /* overflow: hidden; */
 }
 .top_left
 {
@@ -30,7 +35,7 @@ a {
 
 .top_right 
 {
-    margin: 10px 0px;
+    /* margin: 10px 0px; */
 }
 .top_right .btn{
     float: right;
@@ -50,13 +55,13 @@ a {
 
 
 .navbar{
-    width: 450vh;
+    width: 100%;
     background-color:#004730;
     font-size: 20px;
     
 }
 .nav{
-    margin-left: 50px;
+    margin-left: 60px;
     
 }
 .nav li a{
@@ -109,7 +114,7 @@ a {
 .footer
 {
     background-color: #86c17a;
-    padding: 15px 0px 0px 0px;
+    /* padding: 15px 0px 0px 0px; */
     margin-top: 10px;
 }
 .footer .f_logo img
