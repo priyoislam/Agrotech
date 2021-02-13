@@ -1,17 +1,12 @@
-<!DOCTYPE>
+<!DOCTYPE html>
 <html>
     <head>
 
-         <!-- CSS -->
-    <link rel="stylesheet" href="css/all.css">
-    <link rel="stylesheet" href="css/bootstrap.min.css">
-    <link rel="stylesheet" href="css/style.css" type="text/css">
-    <link rel="stylesheet" href="css/animal-style.css" type="text/css">
 
-    <!-- Java Script -->
-    <script src="jscript/jquery.min.js"></script>
-    <script src="jscript/popper.min.js"></script>
-    <script src="jscript/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="css/animal-style.css" type="text/css">
+    <link rel="stylesheet" href="css/style.css" type="text/css">
+
+
 
 
     </head>
@@ -24,7 +19,8 @@
                 <button class="tablink" onclick="openPage('Cattle', this, '#86c17a')">Cattle</button>
                 <button class="tablink" onclick="openPage('Goat', this, '#86c17a')" id="defaultOpen">Goat</button>
                 <button class="tablink" onclick="openPage('Chicken', this, '#86c17a')">Chicken</button>
-                <button class="tablink" onclick="openPage('Duck', this, '#86c17a')">Fish</button>
+                <button class="tablink" onclick="openPage('Duck', this, '#86c17a')">Duck</button>
+                <button class="tablink" onclick="openPage('Fish', this, '#86c17a')">Fish</button>
         
                 <div id="Cattle" class="tabcontent">
                   <h3>Cattle Chart</h3>
@@ -105,6 +101,25 @@
                     
                   </table>
                 </div>
+
+                <div id="Fish" class="tabcontent">
+                    <h3>Fishery Chart</h3>
+                    <table id="customers">
+                      <tr>
+                        <th>Fish Id</th>
+                        <th>Species</th>
+                        <th>Avg Weight</th>
+                        <th>Food </th>
+                        <th>Approx. Quantity</th>
+                        <th>Relasing Time</th>
+                        <th>Reproduction</th>
+                        <th>Fishing Time</th>
+                      </tr>
+                      
+                    </table>
+                  </div>
+
+
               </div>
         </div>
 
