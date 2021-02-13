@@ -1,0 +1,149 @@
+<!DOCTYPE>
+<html>
+    <head>
+        <style>
+            /* Set height of body and the document to 100% to enable "full page tabs" */
+                body, html {
+                  height: 100%;
+                  margin: 0;
+                  font-family: Arial;
+                }
+      
+                /* Style tab links */
+                .tablink {
+                  /* background-color: #555; */
+                  /*color: white; */
+                  float: left;
+                  border: none;
+                  outline: none;
+                  cursor: pointer;
+                  padding: 14px 16px;
+                  font-size: 17px;
+                  width: 25%;
+                }
+      
+                .tablink:hover {
+                  /* background-color: #777; */
+                }
+      
+                /* Style the tab content (and add height:100% for full page content) */
+                .tabcontent {
+                  background-color: white;
+                  display: none;
+                  padding: 100px 20px;
+                  height: 100%;
+                }
+      
+                #Home {background-color: #86c17a;}
+                #News {background-color: #86c17a;}
+                #Contact {background-color: #86c17a;}
+                #About {background-color: #86c17a;} 
+          </style>
+    </head>
+    <body>
+        <div id="animal">
+            <div class="container">
+                <button class="tablink" onclick="openPage('Cattle', this, '#86c17a')">Cattle</button>
+                <button class="tablink" onclick="openPage('Goat', this, '#86c17a')" id="defaultOpen">Goat</button>
+                <button class="tablink" onclick="openPage('Chicken', this, '#86c17a')">Chicken</button>
+                <button class="tablink" onclick="openPage('Duck', this, '#86c17a')">Fish</button>
+        
+                <div id="Cattle" class="tabcontent">
+                  <h3>Cattle Chart</h3>
+                  <table id="customers">
+                    <tr>
+                      <th>Cow Id</th>
+                      <th>Breed</th>
+                      <th>Gender</th>
+                      <th>Weight</th>
+                      <th>Food Intake</th>
+                      <th>Milk Production</th>
+                      <th>Shed No</th>
+                      <th>Status</th>
+                    </tr>
+                    
+                  </table>
+                </div>
+        
+                <div id="Goat" class="tabcontent">
+                  <h3>Goat Chart</h3>
+                  <table id="customers">
+                    <tr>
+                      <th>Goat Id</th>
+                      <th>Breed</th>
+                      <th>Gender</th>
+                      <th>Weight</th>
+                      <th>Food Intake</th>
+                      <th>Milk Production</th>
+                      <th>Shed No</th>
+                      <th>Status</th>
+                    </tr>
+                    
+                  </table>
+                </div>
+        
+                <div id="Chicken" class="tabcontent">
+                  <h3>Chicken Chart</h3>
+                  <table id="customers">
+                    <tr>
+                      <th>Chicken Id</th>
+                      <th>Breed</th>
+                      <th>Gender</th>
+                      <th>Weight</th>
+                      <th>Food Intake</th>
+                      <th>Egg Production</th>
+                      <th>Shed No</th>
+                      <th>Status</th>
+                    </tr>
+                    
+                  </table>
+                </div>
+        
+                <div id="Duck" class="tabcontent">
+                  <h3>Duck Chart</h3>
+                  <table id="customers">
+                    <tr>
+                      <th>Duck Id</th>
+                      <th>Breed</th>
+                      <th>Gender</th>
+                      <th>Weight</th>
+                      <th>Food Intake</th>
+                      <th>Egg Production</th>
+                      <th>Shed No</th>
+                      <th>Status</th>
+                    </tr>
+                    
+                  </table>
+                </div>
+              </div>
+        </div>
+
+
+
+        <script>
+            function openPage(pageName, elmnt, color) {
+             // Hide all elements with class="tabcontent" by default */
+             var i, tabcontent, tablinks;
+             tabcontent = document.getElementsByClassName("tabcontent");
+             for (i = 0; i < tabcontent.length; i++) {
+               tabcontent[i].style.display = "none";
+             }
+       
+             // Remove the background color of all tablinks/buttons
+             tablinks = document.getElementsByClassName("tablink");
+             for (i = 0; i < tablinks.length; i++) {
+               tablinks[i].style.backgroundColor = "";
+             }
+       
+             // Show the specific tab content
+             document.getElementById(pageName).style.display = "block";
+       
+             // Add the specific color to the button used to open the tab content
+             elmnt.style.backgroundColor = color;
+           }
+       
+           // Get the element with id="defaultOpen" and click on it
+           document.getElementById("defaultOpen").click();
+          </script>
+    </body>
+</html>
