@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>My Website</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/all.css">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/style.css" type="text/css">
+    <link rel="stylesheet" href="css/animal-style.css" type="text/css">
+
+    <!-- Java Script -->
+    <script src="jscript/jquery.min.js"></script>
+    <script src="jscript/popper.min.js"></script>
+    <script src="jscript/bootstrap.min.js"></script>
+    <script>
+        $(function(){
+          var includes = $('[data-include]');
+          jQuery.each(includes, function(){
+            var file = $(this).data('include') + '.html';
+            $(this).load(file);
+          });
+        });
+    </script>
+
+</head>
+<body>
+  
+        <div data-include="header"></div>
+        <div data-include="nav2"></div>
+            
+    <h4>Administrative Data</h4>
+    <div id="buyer">
+      <div class="container">
+        <h3>Buyer Information</h3>
+        <table id="customers">
+          <tr>
+            <th>Buyer Id</th>
+            <th>Login Id</th>
+            <th>Name</th>
+            <th>Email Id</th>
+            <th>Address</th>
+            <th>Phone No</th>
+            
+          </tr>
+          
+        </table>
+      </div>
+    </div>
+    <br><br>
+    <div id="pinv">
+      <div class="container">
+        <h3>Admin Inforamtion</h3>
+        <table id="customers">
+          <tr>
+            <th>Admin Id</th>
+            <th>Login Id</th>
+            <th>Name</th>
+            <th>Email Id</th>
+            <th>Address</th>
+            <th>Phone No</th>
+            
+            
+            
+          </tr>
+          
+        </table>
+      </div>
+    </div>
+
+    
+    </div>
+
+    <div data-include="footer"></div>
+</body>
+</html>
