@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>My Website</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/all.css">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/style.css" type="text/css">
+
+
+    <!-- Java Script -->
+    <script src="jscript/jquery.min.js"></script>
+    <script src="jscript/popper.min.js"></script>
+    <script src="jscript/bootstrap.min.js"></script>
+    <script src="jquery.js"></script> 
+    <script>
+        $(function(){
+          var includes = $('[data-include]');
+          jQuery.each(includes, function(){
+            var file = $(this).data('include') + '.html';
+            $(this).load(file);
+          });
+        });
+    </script>
+
+<style>
+  .container {
+    height: 200px;
+    position: relative;
+    /* border: 3px solid green; */
+  }
+  
+  .center {
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+  }
+
+  .button {
+  border-radius: 4px;
+  background-color: #86c17a;;
+  border: none;
+  color: #FFFFFF;
+  text-align: center;
+  font-size: 28px;
+  padding: 20px;
+  width: 400px;
+  transition: all 0.5s;
+  cursor: pointer;
+  margin: 5px;
+}
+
+.button span {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: 0.5s;
+}
+
+.button span:after {
+  content: '\00bb';
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  right: -20px;
+  transition: 0.5s;
+}
+
+.button:hover span {
+  padding-right: 25px;
+}
+
+.button:hover span:after {
+  opacity: 1;
+  right: 0;
+}
+ 
+  </style>
+
+</head>
+<body>
+  
+        <div data-include="header"></div>
+        <div data-include="navbar"></div>
+            
+        <div class="container">
+          <div class="center">
+            <!-- <button>Centered Button</button> -->
+            <button class="button"><span>Branch 1 </span></button>
+          </div>
+
+        </div>
+        <div class="container">
+          <div class="center">
+            <!-- <button>Centered Button</button> -->
+            <button class="button"><span>Branch 2 </span></button>
+          </div>
+
+        </div>
+        <div class="container">
+          <div class="center">
+            <!-- <button>Centered Button</button> -->
+            <button class="button"><span>Branch 3 </span></button>
+          </div>
+
+        </div>
+
+
+
+
+
+
+        
+    
+
+
+        <div data-include="footer"></div>
+
+
+   
+
+</body>
