@@ -24,6 +24,12 @@
                     padding: 100px 20px;
                     height: 100%;
                   }
+                  .restTab{
+                     background-color: white;
+                    /* display: none; */
+                    /* padding: 100px 20px; */
+                    border: 2px solid black
+                  }
         
                   #Home {background-color: #86c17a;}
                   #News {background-color: #86c17a;}
@@ -96,3 +102,38 @@
             background-color: #86c17a;
             color: black;
           }
+
+#r1{
+  display: none;
+}
+
+/* #cattle0Col0{
+  display: none;
+} */
+/* #cattle0Col1{
+  display: none;
+}
+#cattle0Col2{
+  display: none;
+}
+#cattle0Col3{
+  display: none;
+} */
+/* #cattle0Col4{
+  display: none;
+}
+#cattle0Col5{
+  display: none;
+}
+#cattle0Col6{
+  display: none;
+}
+#cattle0Col7{
+  display: none;
+}
+#cattle0Col8{
+  display: none;
+}
+#cattle0Col9{
+  display: none;
+} */

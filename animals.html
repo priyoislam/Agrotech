@@ -1,218 +1,479 @@
 <!DOCTYPE html>
 <html>
-    <head>
+
+<head>
 
 
-    <link rel="stylesheet" href="css/animal-style.css" type="text/css">
-    <!-- <link rel="stylesheet" href="css/style.css" type="text/css"> -->
+  <link rel="stylesheet" href="css/animal-style.css" type="text/css">
+  <!-- <link rel="stylesheet" href="css/style.css" type="text/css"> -->
+  <script src="./script.js"></script>
 
-   
 
 
-    </head>
-    <body>
 
-        
-        
-        <div id="animal">
-            <div class="container">
-                <button class="tablink" onclick="openPage('Cattle', this, '#86c17a')" id="defaultOpen">Cattle</button>
-                <button class="tablink" onclick="openPage('Goat', this, '#86c17a')">Goat</button>
-                <button class="tablink" onclick="openPage('Chicken', this, '#86c17a')">Chicken</button>
-                <button class="tablink" onclick="openPage('Duck', this, '#86c17a')">Duck</button>
-                <button class="tablink" onclick="openPage('Fish', this, '#86c17a')">Fish</button>
-        
-                <div id="Cattle" class="tabcontent">
-                  <h3>Cattle Chart</h3>
-                  <table id="customers">
-                    <tr>
-                      <th>Cow Id</th>
-                      <th>Breed</th>
-                      <th>Gender</th>
-                      <th>Weight</th>
-                      <th>Food Intake</th>
-                      <th>Milk Production</th>
-                      <th>Shed No</th>
-                      <th>Status</th>
-                    </tr>
-                    
-                  </table>
-                  <button id="myBtn" >Update</button>
-                  <div id="myModal" class="modal">
+</head>
 
-                    <!-- Modal content -->
-                    <div class="modal-content">
-                      <span class="close">&times;</span>
-                      <p>Some text in the Modal..</p>
-                    </div>
-                  
-                  </div>
+<body>
 
-                  <button id="myBtn" >Insert</button>
-                  <div id="myModal" class="modal">
 
-                    <!-- Modal content -->
-                    <div class="modal-content">
-                      <span class="close">&times;</span>
-                      <p>Some text in the Modal..</p>
-                    </div>
-                  
-                  </div>
 
-                  <button id="myBtn" >Delete</button>
-                  <div id="myModal" class="modal">
+  <div id="animal">
+    <div class="container">
+      <button class="tablink" onclick="openPage('Cattle', this, '#86c17a'), handleCattle()"
+        id="defaultOpen">Cattle</button>
+      <button class="tablink" onclick="openPage('Goat', this, '#86c17a'),handleGoat()">Goat</button>
+      <button class="tablink" onclick="openPage('Chicken', this, '#86c17a'),handleChicken()">Chicken</button>
+      <button class="tablink" onclick="openPage('Duck', this, '#86c17a'),handleDuck()">Duck</button>
+      <button class="tablink" onclick="openPage('Fish', this, '#86c17a'),handleFish()">Fish</button>
 
-                    <!-- Modal content -->
-                    
+      <!--***** CATTLE *****-->
+      <div id="Cattle" class="tabcontent">
+        <h3>Cattle Chart</h3>
+        <table id="customers">
+          <thead>
+            <tr>
+              <th>Cow ID</th>
+              <th>Breed</th>
+              <th>Cow Type</th>
+              <th>Gender</th>
+              <th>Color</th>
+              <th>Weight</th>
+              <th>Milk Production</th>
+              <th>Food Intake</th>
+              <th>Shed No</th>
+              <th>Status</th>
+            </tr>
+          </thead>
+          <tbody id="cattleTable">
+          </tbody>
+        </table>
 
-                    <div class="modal-content">
-                      <span class="close">&times;</span>
-                      <p>Some text in the Modal..</p>
-                    </div>
-                  
-                  </div>
-                  
-                  </div>
-                  
-                 
+        <div class="mt-5">
+          <!--UPDATE CATTLE-->
+          <button onclick="cattleUpdateFunc()" class="btn btn-success" id="updateBtn">Update</button>
+          <div id="cattleUpdateModal" class="modal">
+            <div class="modal-content">
+              <span onclick="cattleUpdateClose()" class="close">&times;</span>
+              <form action="">
+                <div class="form-group">
+                  <label for="C_ID" style=" font-weight: 800;">Cow ID</label>
+                  <input id="C_ID" type="text" class="form-control" style="width: 50%;" aria-describedby="emailHelp"
+                    required>
                 </div>
-        
-                <div id="Goat" class="tabcontent">
-                  <h3>Goat Chart</h3>
-                  <table id="customers">
-                    <tr>
-                      <th>Goat Id</th>
-                      <th>Breed</th>
-                      <th>Gender</th>
-                      <th>Weight</th>
-                      <th>Food Intake</th>
-                      <th>Milk Production</th>
-                      <th>Shed No</th>
-                      <th>Status</th>
-                    </tr>
-                    
-                  </table>
+                <div class="form-group">
+                  <label for="ID" style=" font-weight: 800;">Field</label>
+                  <br>
+                  <select class="form-control" style="width: 50%;" name="Cattle" id="cattleUpdate">
+                    <option value="Co_ID">Select</option>
+                    <option value="Br_ID">Breed</option>
+                    <option value="Co_Type">Cow Type</option>
+                    <option value="Co_Color">Color</option>
+                    <option value="Co_Gender">Gender</option>
+                    <option value="Co_Weight">Weight</option>
+                    <option value="Co_FoodIntake">Food Intake</option>
+                    <option value="Co_MilkProduction">Milk Production</option>
+                    <option value="Co_Shed_No">Shed No</option>
+                    <option value="Co_Status">Status</option>
+                  </select>
                 </div>
-        
-                <div id="Chicken" class="tabcontent">
-                  <h3>Chicken Chart</h3>
-                  <table id="customers">
-                    <tr>
-                      <th>Chicken Id</th>
-                      <th>Breed</th>
-                      <th>Gender</th>
-                      <th>Weight</th>
-                      <th>Food Intake</th>
-                      <th>Egg Production</th>
-                      <th>Shed No</th>
-                      <th>Status</th>
-                    </tr>
-                    
-                  </table>
+                <div class="form-group">
+                  <label for="cFieldValue" style=" font-weight: 800;">Value</label>
+                  <input type="text" id="cFieldValue" class="form-control" style="width: 50%;"
+                    aria-describedby="emailHelp" required>
                 </div>
-        
-                <div id="Duck" class="tabcontent">
-                  <h3>Duck Chart</h3>
-                  <table id="customers">
-                    <tr>
-                      <th>Duck Id</th>
-                      <th>Breed</th>
-                      <th>Gender</th>
-                      <th>Weight</th>
-                      <th>Food Intake</th>
-                      <th>Egg Production</th>
-                      <th>Shed No</th>
-                      <th>Status</th>
-                    </tr>
-                    
-                  </table>
+              </form>
+              <button onclick="handleCattleUpdate()" style="width: 50%;" class="btn btn-success">Update</button>
+            </div>
+
+          </div>
+
+          <!--INSERT CATTLE-->
+
+          <button onclick="cattleInsertFunc()" class="btn btn-success ml-3" id="insertBtn">Insert</button>
+          <div id="cattleInsertModal" class="modal">
+
+            <!-- Modal content -->
+            <div class="modal-content">
+              <span onclick="cattleInsertClose()" class="close">&times;</span>
+              <form action="">
+                <div class="form-group">
+                  <label for="c_id" style=" font-weight: 800;">Cow ID</label>
+                  <input id="c_id" type="text" class="form-control" style="width: 50%;" aria-describedby="emailHelp"
+                    required>
+                </div>
+                <div class="form-group">
+                  <label for="br" style=" font-weight: 800;">Breed</label>
+                  <input id="br" type="text" class="form-control" style="width: 50%;" aria-describedby="emailHelp"
+                    required>
+                </div>
+                <div class="form-group">
+                  <label for="c_type" style=" font-weight: 800;">Cow Type</label>
+                  <input id="c_type" type="text" class="form-control" style="width: 50%;" aria-describedby="emailHelp"
+                    required>
+                </div>
+                <div class="form-group">
+                  <label for="gender" style=" font-weight: 800;">Gender</label>
+                  <input id="gender" type="text" class="form-control" style="width: 50%;" aria-describedby="emailHelp"
+                    required>
+                </div>
+                <div class="form-group">
+                  <label for="color" style=" font-weight: 800;">Color</label>
+                  <input id="color" type="text" class="form-control" style="width: 50%;" aria-describedby="emailHelp"
+                    required>
+                </div>
+                <div class="form-group">
+                  <label for="weight" style=" font-weight: 800;">Weight</label>
+                  <input id="weight" type="text" class="form-control" style="width: 50%;" aria-describedby="emailHelp"
+                    required>
+                </div>
+                <div class="form-group">
+                  <label for="mp" style=" font-weight: 800;">Milk Production</label>
+                  <input id="mp" type="text" class="form-control" style="width: 50%;" aria-describedby="emailHelp"
+                    required>
+                </div>
+                <div class="form-group">
+                  <label for="fdIntk" style=" font-weight: 800;">Food Intake</label>
+                  <input id="fdIntk" type="text" class="form-control" style="width: 50%;" aria-describedby="emailHelp"
+                    required>
+                </div>
+                <div class="form-group">
+                  <label for="s_no" style=" font-weight: 800;">Shed No</label>
+                  <input id="s_no" type="text" class="form-control" style="width: 50%;" aria-describedby="emailHelp"
+                    required>
+                </div>
+                <div class="form-group">
+                  <label for="status" style=" font-weight: 800;">Status</label>
+                  <input id="status" type="text" class="form-control" style="width: 50%;" aria-describedby="emailHelp"
+                    required>
                 </div>
 
-                <div id="Fish" class="tabcontent">
-                    <h3>Fishery Chart</h3>
-                    <table id="customers">
-                      <tr>
-                        <th>Fish Id</th>
-                        <th>Species</th>
-                        <th>Avg Weight</th>
-                        <th>Food </th>
-                        <th>Approx. Quantity</th>
-                        <th>Relasing Time</th>
-                        <th>Reproduction</th>
-                        <th>Fishing Time</th>
-                      </tr>
-                      
-                    </table>
-                  </div>
+
+              </form>
+              <button onclick="handleCattleInsert()" style="width: 50%;" class="btn btn-success">Insert</button>
+            </div>
+
+          </div>
+
+          <!--DELETE CATTLE-->
+          <button onclick="cattleDeleteFunc()" class="btn btn-success ml-3" id="deleteBtn">Delete</button>
+          <div id="deleteCattleModal" class="modal">
+
+            <!-- Modal content -->
 
 
+            <div class="modal-content">
+              <span onclick="cattleDeleteClose()" class="close">&times;</span>
+              <div class="form-group">
+                <label for="cId" style=" font-weight: 800;">Cow ID</label>
+                <input id="cId" type="text" class="form-control" style="width: 50%;" aria-describedby="emailHelp"
+                  required>
               </div>
+              <button onclick="handleCattleDelete()" style="width: 50%;" class="btn btn-success">Delete</button>
+            </div>
+
+          </div>
         </div>
 
 
-
-      
-
-         
-        <script>
-
-            
+      </div>
 
 
-            function openPage(pageName, elmnt, color) {
-             // Hide all elements with class="tabcontent" by default */
-             var i, tabcontent, tablinks;
-             tabcontent = document.getElementsByClassName("tabcontent");
-             for (i = 0; i < tabcontent.length; i++) {
-               tabcontent[i].style.display = "none";
-             }
-       
-             // Remove the background color of all tablinks/buttons
-             tablinks = document.getElementsByClassName("tablink");
-             for (i = 0; i < tablinks.length; i++) {
-               tablinks[i].style.backgroundColor = "";
-             }
-       
-             // Show the specific tab content
-             document.getElementById(pageName).style.display = "block";
-       
-             // Add the specific color to the button used to open the tab content
-             elmnt.style.backgroundColor = color;
-           }
-       
-           // Get the element with id="defaultOpen" and click on it
-           document.getElementById("defaultOpen").click();
-          </script>
+    </div>
+
+    <!--***** GOAT *****-->
+    <div style="width: 82%;" id="Goat" class="tabcontent mx-auto">
+      <h3>Goat Chart</h3>
+      <table id="customers">
+        <thead>
+          <tr>
+            <th>Goat ID</th>
+            <th>Breed</th>
+            <th>Goat Type</th>
+            <th>Color</th>
+            <th>Gender</th>
+            <th>Weight</th>
+            <th>Food Intake</th>
+            <th>Milk Production</th>
+            <th>Shed No</th>
+            <th>Status</th>
+          </tr>
+        </thead>
+        <tbody id="goatTable">
+        </tbody>
+      </table>
+      <div class="mt-5">
+        <!--UPDATE GOAT-->
+        <button onclick="goatUpdateFunc()" class="btn btn-success" id="updateBtn">Update</button>
+        <div id="goatUpdateModal" class="modal">
+          <!-- Modal content -->
+          <div class="modal-content">
+            <span onclick="goatUpdateClose()" class="close">&times;</span>
+            <form action="">
+              <div class="form-group">
+                <label for="GID" style=" font-weight: 800;">Goat ID</label>
+                <input id="GID" type="text" class="form-control" style="width: 50%;" aria-describedby="emailHelp"
+                  required>
+              </div>
+              <div class="form-group">
+                <label for="goatUpdate" style=" font-weight: 800;">Field</label>
+                <br>
+                <select class="form-control" style="width: 50%;" name="goat" id="goatUpdate">
+                  <option value="G_ID">Select</option>
+                  <option value="Br_ID">Breed</option>
+                  <option value="G_Type">Goat Type</option>
+                  <option value="G_Color">Color</option>
+                  <option value="G_Gender">Gender</option>
+                  <option value="G_Weight">Weight</option>
+                  <option value="G_FoodIntake">Food Intake</option>
+                  <option value="G_MilkProduction">Milk Production</option>
+                  <option value="G_Shed_No">Shed No</option>
+                  <option value="G_Status">Status</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="gFieldValue" style=" font-weight: 800;">Value</label>
+                <input type="text" id="gFieldValue" class="form-control" style="width: 50%;"
+                  aria-describedby="emailHelp" required>
+              </div>
+            </form>
+            <button onclick="handleGoatUpdate()" style="width: 50%;" class="btn btn-success">Update</button>
+          </div>
+
+        </div>
+
+        <!--INSERT GOAT-->
+
+        <!--INSERT CATTLE-->
+
+        <button onclick="goatInsertFunc()" class="btn btn-success ml-3" id="insertBtn">Insert</button>
+        <div id="goatInsertModal" class="modal">
+
+          <!-- Modal content -->
+          <div class="modal-content">
+            <span onclick="goatInsertClose()" class="close">&times;</span>
+            <form action="">
+              <div class="form-group">
+                <label for="g_id" style=" font-weight: 800;">Goat ID</label>
+                <input id="g_id" type="text" class="form-control" style="width: 50%;" aria-describedby="emailHelp"
+                  required>
+              </div>
+              <div class="form-group">
+                <label for="g_br" style=" font-weight: 800;">Breed</label>
+                <input id="g_br" type="text" class="form-control" style="width: 50%;" aria-describedby="emailHelp"
+                  required>
+              </div>
+              <div class="form-group">
+                <label for="g_type" style=" font-weight: 800;">Goat Type</label>
+                <input id="g_type" type="text" class="form-control" style="width: 50%;" aria-describedby="emailHelp"
+                  required>
+              </div>
+              <div class="form-group">
+                <label for="g_color" style=" font-weight: 800;">Color</label>
+                <input id="g_color" type="text" class="form-control" style="width: 50%;" aria-describedby="emailHelp"
+                  required>
+              </div>
+              <div class="form-group">
+                <label for="g_gender" style=" font-weight: 800;">Gender</label>
+                <input id="g_gender" type="text" class="form-control" style="width: 50%;" aria-describedby="emailHelp"
+                  required>
+              </div>
+              <div class="form-group">
+                <label for="g_weight" style=" font-weight: 800;">Weight</label>
+                <input id="g_weight" type="text" class="form-control" style="width: 50%;" aria-describedby="emailHelp"
+                  required>
+              </div>
+              <div class="form-group">
+                <label for="g_fdIntk" style=" font-weight: 800;">Food Intake</label>
+                <input id="g_fdIntk" type="text" class="form-control" style="width: 50%;" aria-describedby="emailHelp"
+                  required>
+              </div>
+              <div class="form-group">
+                <label for="g_mp" style=" font-weight: 800;">Milk Production</label>
+                <input id="g_mp" type="text" class="form-control" style="width: 50%;" aria-describedby="emailHelp"
+                  required>
+              </div>
+              <div class="form-group">
+                <label for="g_s_no" style=" font-weight: 800;">Shed No</label>
+                <input id="g_s_no" type="text" class="form-control" style="width: 50%;" aria-describedby="emailHelp"
+                  required>
+              </div>
+              <div class="form-group">
+                <label for="g_status" style=" font-weight: 800;">Status</label>
+                <input id="g_status" type="text" class="form-control" style="width: 50%;" aria-describedby="emailHelp"
+                  required>
+              </div>
+
+
+            </form>
+            <button onclick="handleGoatInsert()" style="width: 50%;" class="btn btn-success">Insert</button>
+          </div>
+
+        </div>
+
+        <!--DELETE CATTLE-->
+        <button onclick="goatDeleteFunc()" class="btn btn-success ml-3" id="deleteBtn">Delete</button>
+        <div id="deleteGoatModal" class="modal">
+
+          <!-- Modal content -->
+
+
+          <div class="modal-content">
+            <span onclick="goatDeleteClose()" class="close">&times;</span>
+            <div class="form-group">
+              <label for="gId" style=" font-weight: 800;">Cow ID</label>
+              <input id="gId" type="text" class="form-control" style="width: 50%;" aria-describedby="emailHelp"
+                required>
+            </div>
+            <button onclick="handleGoatDelete()" style="width: 50%;" class="btn btn-success">Delete</button>
+          </div>
+
+        </div>
+
+      </div>
 
 
 
-            <script>
-                // Get the modal
-                var modal = document.getElementById("myModal");
 
-                // Get the button that opens the modal
-                var btn = document.getElementById("myBtn");
+    </div>
+<!--***** CHICKEN *****-->
+    <div style="width: 82%;" id="Chicken" class="tabcontent mx-auto">
+      <h3>Chicken Chart</h3>
+      <table id="customers">
+        <thead>
+          <tr>
+            <th>Chicken ID</th>
+            <th>Breed</th>
+            <th>Chicekn Type</th>
+            <th>Chicekn Number</th>
+            <th>Chicken Breed</th>
+            <th>Food Intake</th>
+            <th>Egg Production</th>
+            <th>Shed No</th>
+          </tr>
+        </thead>
+        <tbody id="chickenTable">
+        </tbody>
+      </table>
+      <div class="mt-5">
+        <button onclick="" class="btn btn-success" id="updateBtn">Update</button>
+        <button onclick="" class="btn btn-success ml-3" id="insertBtn">Insert</button>
+        <button onclick="" class="btn btn-success ml-3" id="deleteBtn">Delete</button>
+      </div>
+    </div>
 
-                // Get the <span> element that closes the modal
-                var span = document.getElementsByClassName("close")[0];
+    <!-- ***** DUCK ***** -->
+    <div style="width: 82%;" id="Duck" class="tabcontent mx-auto">
+      <h3>Duck Chart</h3>
+      <table id="customers">
+        <thead>
+          <tr>
+            <th>Duck</th>
+            <th>Breed ID</th>
+            <th>Duck Type</th>
+            <th>Duck Number</th>
+            <th>Duck Breed</th>
+            <th>Food Intake</th>
+            <th>Egg Production</th>
+            <th>Shed No</th>
+          </tr>
+        </thead>
+        <tbody id="duckTable">
+        </tbody>
+      </table>
+      <div class="mt-5">
+        <button onclick="" class="btn btn-success" id="updateBtn">Update</button>
+        <button onclick="" class="btn btn-success ml-3" id="insertBtn">Insert</button>
+        <button onclick="" class="btn btn-success ml-3" id="deleteBtn">Delete</button>
+      </div>
+    </div>
 
-                // When the user clicks on the button, open the modal
-                btn.onclick = function() {
-                modal.style.display = "block";
-                }
+    <!-- ***** FISH ***** -->
+    <div style="width: 82%;" id="Fish" class="tabcontent mx-auto">
+      <h3>Fishery Chart</h3>
+      <table id="customers">
+        <thead>
+          <tr>
+            <th>Fish ID</th>
+            <th>Breed</th>
+            <th>Fish Type</th>
+            <th>Food Intake</th>
+            <th>Relasing Time</th>
+            <th>Reproduction</th>
+            <th>Approximate Quantity</th>
+            <th>Fishing Time</th>
+            <th>PondNo</th>
+          </tr>
+        </thead>
+        <tbody id="fishTable">
+        </tbody>
+      </table>
+      <div class="mt-5">
+        <button onclick="" class="btn btn-success" id="updateBtn">Update</button>
+        <button onclick="" class="btn btn-success ml-3" id="insertBtn">Insert</button>
+        <button onclick="" class="btn btn-success ml-3" id="deleteBtn">Delete</button>
+      </div>
+    </div>
 
-                // When the user clicks on <span> (x), close the modal
-                span.onclick = function() {
-                modal.style.display = "none";
-                }
 
-                // When the user clicks anywhere outside of the modal, close it
-                window.onclick = function(event) {
-                if (event.target == modal) {
-                    modal.style.display = "none";
-                }
-                }
-            </script>
+  </div>
+  </div>
+
+
+
+
+
+
+  <script>
+
+
+
+
+    function openPage(pageName, elmnt, color) {
+      // Hide all elements with class="tabcontent" by default */
+      var i, tabcontent, tablinks;
+      tabcontent = document.getElementsByClassName("tabcontent");
+      for (i = 0; i < tabcontent.length; i++) {
+        tabcontent[i].style.display = "none";
+      }
+
+      // Remove the background color of all tablinks/buttons
+      tablinks = document.getElementsByClassName("tablink");
+      for (i = 0; i < tablinks.length; i++) {
+        tablinks[i].style.backgroundColor = "";
+      }
+
+      // Show the specific tab content
+      document.getElementById(pageName).style.display = "block";
+
+      // Add the specific color to the button used to open the tab content
+      elmnt.style.backgroundColor = color;
+    }
+
+    // Get the element with id="defaultOpen" and click on it
+    document.getElementById("defaultOpen").click();
+  </script>
+
+
+
+  <script>
+
+
+
+
+    // When the user clicks anywhere outside of the modal, close it
+    // window.onclick = (event) => {
+    //   if (event.target == updateModal) {
+    //     updateModal.style.display = "none";
+    //   }
+    //   if (event.target == insertModal) {
+    //     insertModal.style.display = "none";
+    //   }
+    //   if (event.target == deleteModal) {
+    //     deleteModal.style.display = "none";
+    //   }
+    // }
+  </script>
 
 </body>
+
 </html>

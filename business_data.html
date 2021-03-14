@@ -2,78 +2,106 @@
 <html lang="en">
 
 <head>
-    <title>My Website</title>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>My Website</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <!-- CSS -->
-    <link rel="stylesheet" href="css/all.css">
-    <link rel="stylesheet" href="css/bootstrap.min.css">
-    <link rel="stylesheet" href="css/style.css" type="text/css">
-    <link rel="stylesheet" href="css/animal-style.css" type="text/css">
+  <!-- CSS -->
+  <link rel="stylesheet" href="css/all.css">
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/style.css" type="text/css">
+  <link rel="stylesheet" href="css/animal-style.css" type="text/css">
 
-    <!-- Java Script -->
-    <script src="jscript/jquery.min.js"></script>
-    <script src="jscript/popper.min.js"></script>
-    <script src="jscript/bootstrap.min.js"></script>
-    <script>
-        $(function(){
-          var includes = $('[data-include]');
-          jQuery.each(includes, function(){
-            var file = $(this).data('include') + '.html';
-            $(this).load(file);
-          });
-        });
-    </script>
+  <!-- Java Script -->
+  <script src="script.js"></script>
+  <script src="jscript/jquery.min.js"></script>
+  <script src="jscript/popper.min.js"></script>
+  <script src="jscript/bootstrap.min.js"></script>
+  <script>
+    $(function () {
+      var includes = $('[data-include]');
+      jQuery.each(includes, function () {
+        var file = $(this).data('include') + '.html';
+        $(this).load(file);
+      });
+    });
+  </script>
 
 </head>
+
 <body>
-  
-        <div data-include="header"></div>
-        <div data-include="nav2"></div>
-            
-    <h4>Administrative Data</h4>
-    <div id="buyer">
-      <div class="container">
-        <h3>Buyer Information</h3>
-        <table id="customers">
-          <tr>
-            <th>Buyer Id</th>
-            <th>Login Id</th>
-            <th>Name</th>
-            <th>Email Id</th>
-            <th>Address</th>
-            <th>Phone No</th>
-            
-          </tr>
-          
-        </table>
-      </div>
-    </div>
-    <br><br>
-    <div id="pinv">
-      <div class="container">
+
+  <div data-include="header"></div>
+  <div data-include="nav2"></div>
+
+  <!-- <h4>Administrative Data</h4> -->
+  <!--ADMIN-->
+  <div>
+    <div onclick="handleAdmin()" style="background-color: white; width: 82%;" class="mx-auto p-4">
+      <div class="container" class="mx-auto">
         <h3>Admin Inforamtion</h3>
         <table id="customers">
-          <tr>
-            <th>Admin Id</th>
-            <th>Login Id</th>
-            <th>Name</th>
-            <th>Email Id</th>
-            <th>Address</th>
-            <th>Phone No</th>
-            
-            
-            
-          </tr>
-          
+          <thead>
+            <tr>
+              <th>Admin Id</th>
+              <th>Login Id</th>
+              <th>Name</th>
+              <th>Email Id</th>
+              <th>Address</th>
+              <th>Phone No</th>
+            </tr>
+          </thead>
+          <tbody id="adminTable">
+
+          </tbody>
         </table>
+        <div class="mt-5">
+          <button onclick="" class="btn btn-success" id="updateBtn">Update</button>
+          <button onclick="" class="btn btn-success ml-3" id="insertBtn">Insert</button>
+          <button onclick="" class="btn btn-success ml-3" id="deleteBtn">Delete</button>
+        </div>
       </div>
     </div>
+  </div>
 
-    
+  <br><br>
+
+  <!--BUYER-->
+  <div>
+    <div onclick="handleAdmin()" style="background-color: white; width: 82%;" class="mx-auto p-4">
+      <div id="buyer" onclick="handleBuyer()">
+        <div class="container">
+          <h3>Buyer Information</h3>
+          <table id="customers">
+            <thead>
+              <tr>
+                <th>Buyer Id</th>
+                <th>Login Id</th>
+                <th>Name</th>
+                <th>Email Id</th>
+                <th>Address</th>
+                <th>Phone No</th>
+
+              </tr>
+            </thead>
+            <tbody id="buyerTable">
+            </tbody>
+          </table>
+          <div class="mt-5">
+            <button onclick="" class="btn btn-success" id="updateBtn">Update</button>
+            <button onclick="" class="btn btn-success ml-3" id="insertBtn">Insert</button>
+            <button onclick="" class="btn btn-success ml-3" id="deleteBtn">Delete</button>
+          </div>
+        </div>
+      </div>
     </div>
+  </div>
 
-    <div data-include="footer"></div>
+
+
+
+  <br> <br>
+  <div data-include="footer"></div>
 </body>
+
 </html>
