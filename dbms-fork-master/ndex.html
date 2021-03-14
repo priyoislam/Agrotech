@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+    <title>My Website</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/all.css">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/style.css" type="text/css">
+
+
+    <!-- Java Script -->
+    <script src="jscript/jquery.min.js"></script>
+    <script src="jscript/popper.min.js"></script>
+    <script src="jscript/bootstrap.min.js"></script>
+
+
+    <script>
+        $(function(){
+          var includes = $('[data-include]');
+          jQuery.each(includes, function(){
+            var file = $(this).data('include') + '.html';
+            $(this).load(file);
+          });
+        });
+    </script>
+
+    </head>
+    <body>
+        <div data-include="header"></div>
+    
+           
+        <div data-include="navbar"></div>
+    
+        <div data-include="slide"></div>
+
+        <div class="container">
+            <div class="row history">
+                <div class="col-md-12 text-center">
+                    <h1 class="text-center"> Our Story </h1>
+                    <p class="para">
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Omnis dignissimos aliquam illo autem impedit fugiat obcaecati natus optio sint. Porro doloribus dolore at. Amet laudantium ex nostrum culpa cum distinctio?</p>
+                        <p>Laudantium id provident neque a consectetur hic exercitationem minima dolorum. Tenetur cupiditate officia, sequi eligendi ad iure illum consectetur voluptates velit temporibus! Reprehenderit maxime perspiciatis unde repellat quidem ipsa neque!</p>
+                    </p>
+                    </div>
+            </div>
+            <div class="row Story">
+                <div class="col-md-12 text-center">
+                    <h1 class="text-center"> Who Are We? </h1>
+                </div>
+
+                <div class="col-md-3">
+                    <div class="card" style="width:200px; height:350px">
+                        <img class="card-img-top" src="image/img_avatar1.png" alt="Card image" style=" height:200px">
+                        <div class="card-body">
+                          <h4 class="card-title">John Doe</h4>
+                          <p class="card-text">Some example text.</p>
+                          <a href="#" class="btn btn-primary">See Profile</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="card" style="width:200px; height:350px">
+                        <img class="card-img-top" src="image/img_avatar1.png" alt="Card image" style=" height:200px">
+                        <div class="card-body">
+                          <h4 class="card-title">John Doe</h4>
+                          <p class="card-text">Some example text.</p>
+                          <a href="#" class="btn btn-primary">See Profile</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="card" style="width:200px; height:350px">
+                        <img class="card-img-top" src="image/img_avatar1.png" alt="Card image" style=" height:200px">
+                        <div class="card-body">
+                          <h4 class="card-title">John Doe</h4>
+                          <p class="card-text">Some example text.</p>
+                          <a href="#" class="btn btn-primary">See Profile</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="card" style="width:200px; height:350px">
+                        <img class="card-img-top" src="image/img_avatar1.png" alt="Card image" style=" height:200px">
+                        <div class="card-body">
+                          <h4 class="card-title">John Doe</h4>
+                          <p class="card-text">Some example text.</p>
+                          <a href="#" class="btn btn-primary">See Profile</a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        
+        <div data-include="footer"></div>
+    </body>
+</html>

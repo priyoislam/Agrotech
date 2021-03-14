@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>My Website</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/all.css">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/style.css" type="text/css">
+
+
+    <!-- Java Script -->
+    <script src="jscript/jquery.min.js"></script>
+    <script src="jscript/popper.min.js"></script>
+    <script src="jscript/bootstrap.min.js"></script>
+    <!-- <script src="jquery.js"></script>  -->
+    <script>
+        $(function(){
+          var includes = $('[data-include]');
+          jQuery.each(includes, function(){
+            var file = $(this).data('include') + '.html';
+            $(this).load(file);
+          });
+        });
+    </script>
+    
+
+</head>
+<body>
+  
+        <div data-include="header"></div>
+        <div data-include="navbar"></div>
+        
+        <!-- <div data-include="inventory/product"></div>  -->
+        <div data-include="inventory/Butter"></div> 
+        <div data-include="inventory/Cheese"></div> 
+        <div data-include="inventory/Milk"></div> 
+
+        <div data-include="inventory/Eggs-Chicken"></div> 
+        <div data-include="inventory/Eggs-Duck"></div> 
+        
+        <div data-include="inventory/Rui"></div> 
+        <div data-include="inventory/MrigelFish"></div> 
+        <div data-include="inventory/KoiFish"></div> 
+
+        <div data-include="inventory/Chicken"></div> 
+        <div data-include="inventory/Duck"></div> 
+        <div data-include="inventory/Beef"></div> 
+        <div data-include="inventory/Mutton"></div> 
+
+        
+    
+
+
+        <div data-include="footer"></div>
+
+
+   
+
+</body>

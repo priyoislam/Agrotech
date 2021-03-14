@@ -8,42 +8,34 @@
     <title>Document</title>
 
     <link rel="stylesheet" href="css/style.css" type="text/css">
-<style>
-    .container
-    {
-        align-items: center;
-        justify-content: center;
-    }
-</style>
+
 </head>
 <body>
-  <div class="d-flex justify-content-center">
-                       
-                          
-    <div class="alert " style="font-size: 25px;color: black; background-color: #86c17a;">
-        <strong>Monitoring</strong> 
-    </div>
-  
-    
-</div>
-    <!-- s -->
-    <div id="shinv">
-      <div class="container">
-        <h3 >Shed Invironment</h3>
+   
+  <div id="shinv">
+    <div onclick="handleMonitoring()" class="container">
+      <!-- <h3>Shed Invironment</h3> -->
+      <h3>Monitoring</h3>
         <table id="customers">
-          <tr>
-            <th>M Id</th>
-            <th>Shed No</th>
-            <th>Shed Type</th>
-            <th>Temparature</th>
-            <th>Humidity</th>
-            
-          </tr>
-          
+          <thead>
+            <tr>
+              <th>Monitoring Id</th>
+              <th>Branch ID</th>
+              <th>Humidity</th>
+              <th>Temparature</th>
+              <th>Type</th>
+              <th>Water Quality</th>
+              
+            </tr>
+          </thead>
+          <tbody id="monitoringTable">
+
+          </tbody>
         </table>
       </div>
     </div>
     <br><br>
+    <!-- <br><br>
     <div id="pinv">
       <div class="container">
         <h3>Pond Invironment</h3>
@@ -52,7 +44,7 @@
             <th>M Id</th>
             <th>Pond No</th>
             <th>Pond Type</th>
-            <th>Ph Level</th>
+            <th>Ph Leven</th>
             <th>O2 Level</th>
             
             
@@ -64,6 +56,6 @@
     </div>
 
     
-    </div>
+    </div> -->
 </body>
 </html>

@@ -1,0 +1,66 @@
+
+
+<!DOCTYPE html>
+<html>
+    <head>
+        
+        <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+<!------ Include the above in your HEAD tag ---------->
+
+<link rel="stylesheet" href="../css/p-style.css" type="text/css">
+    </head>
+    <body>
+        <div class="container">
+        	<div class="row pr">
+               <div class="col-xs-4 item-photo">
+                    <img style="max-width:40%;" src="../image/mutton.jpg" />
+                </div>
+                <div class="col-xs-5" style="border:0px solid gray">
+                    <!-- Datos del vendedor y titulo del producto -->
+                    <h3>Mutton</h3>    
+                    
+        
+                    <!-- Precios -->
+                    <h6 class="title-price"><small>Price</small></h6>
+                    <h3 style="margin-top:0px;">Tk 700/kg</h3>
+        
+                               
+        
+                    <!-- Botones de compra -->
+                    <div class="section" style="padding-bottom:20px;">
+                        <button class="btn btn-success"><span style="margin-right:20px" class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span> Add to Cart</button>
+                        <!-- <h6><a href="#"><span class="glyphicon glyphicon-heart-empty" style="cursor:pointer;"></span> Agregar a lista de deseos</a></h6> -->
+                    </div>                                        
+                </div>                              
+        
+                    
+                    </div>
+                </div>		
+            </div>
+        </div>  
+        
+        
+
+
+        <script>
+             $(document).ready(function(){
+            //-- Click on detail
+            $("ul.menu-items > li").on("click",function(){
+                $("ul.menu-items > li").removeClass("active");
+                $(this).addClass("active");
+            })
+
+            $(".attr,.attr2").on("click",function(){
+                var clase = $(this).attr("class");
+
+                $("." + clase).removeClass("active");
+                $(this).addClass("active");
+            })
+
+                                 
+        }) 
+        </script>
+    </body>
+</html>
