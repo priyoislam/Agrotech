@@ -13,7 +13,7 @@
   <link rel="stylesheet" href="css/animal-style.css" type="text/css">
 
   <!-- Java Script -->
-  <script src="script.js"></script>
+  <script src="./script.js"></script>
   <script src="jscript/jquery.min.js"></script>
   <script src="jscript/popper.min.js"></script>
   <script src="jscript/bootstrap.min.js"></script>
@@ -37,7 +37,7 @@
   <!-- <h4>Administrative Data</h4> -->
   <!--ADMIN-->
   <div>
-    <div onclick="handleAdmin()" style="background-color: white; width: 82%;" class="mx-auto p-4">
+    <div onclick="handleAdmin()" style="background-color: white; width: 84%;" class="mx-auto p-4">
       <div class="container" class="mx-auto">
         <h3>Admin Inforamtion</h3>
         <table id="customers">
@@ -68,8 +68,8 @@
 
   <!--BUYER-->
   <div>
-    <div onclick="handleAdmin()" style="background-color: white; width: 82%;" class="mx-auto p-4">
-      <div id="buyer" onclick="handleBuyer()">
+    <div onclick="handleBuyer()" style="background-color: white; width: 84%;" class="mx-auto p-4">
+      <div id="buyer">
         <div class="container">
           <h3>Buyer Information</h3>
           <table id="customers">
@@ -91,6 +91,36 @@
             <button onclick="" class="btn btn-success" id="updateBtn">Update</button>
             <button onclick="" class="btn btn-success ml-3" id="insertBtn">Insert</button>
             <button onclick="" class="btn btn-success ml-3" id="deleteBtn">Delete</button>
+
+            <button class="btn btn-success ml-3" onclick="bQueryFunc()">Query</button>
+            <div id="queryBuyerModal" class="modal">
+              <div class="modal-content">
+                <span onclick="buyerQueryClose()" class="close">&times;</span>
+                <!--QUERY1-->
+                <div class="row">
+                  <div class="col-4">
+                    <div style="border: 2px solid #86c17a;border-radius: 5px;">
+                      <h4 class="m-3">Please enter the buyer ID which you want to search</h4>
+                      <div class="m-3">
+                        <label for="bID" style=" font-weight: 800;">Buyer ID</label>
+                        <input id="bID" type="text" class="form-control" aria-describedby="emailHelp" required>
+                          <br>
+                          <button onclick="handleBuyerQuery()" style="width: 100%;" class="btn btn-success mb-3">Search</button>
+                      </div>
+                    </div>
+                  </div>
+  
+                  <div class="col-8">
+                    <div>
+                      <table id="customers" class="m-0">
+                        <thead>
+                        </thead>
+                        <tbody id="buyerQueryTable">
+                        </tbody>
+                      </table>
+                    </div>  
+                  </div>
+                </div>
           </div>
         </div>
       </div>
@@ -102,6 +132,62 @@
 
   <br> <br>
   <div data-include="footer"></div>
+  <script>
+    const bQueryFunc = () => {
+      document.getElementById("queryBuyerModal").style.display="block"
+      console.log("click")
+    }
+    const buyerQueryClose = () => {
+      document.getElementById("queryBuyerModal").style.display="none"
+      console.log("click")
+    }
+
+    const buyerInfo = []
+const bID = document.getElementById("bID");
+bID.addEventListener('blur', (e) => {
+    console.log(e.target.value);
+    buyerInfo[0] = e.target.value;
+    console.log(buyerInfo);
+})
+const handleBuyerQuery = () => {
+  console.log("handleCLick")
+  fetch('http://localhost:2800/buyerQuery', {
+        method: 'POST',
+        body: JSON.stringify(buyerInfo),
+        headers: {
+            "Content-type": "application/json; charset=UTF-8"
+        }
+    })
+        .then(response => response.json())
+        .then(json => console.log(json))
+        .catch(error => console.log(error));
+        fetch("http://localhost:2800/buyerQueryGet")
+        .then(res => res.json())
+        .then(data => {
+            console.log("buyer", data)
+            const tableBody = document.getElementById("buyerQueryTable");
+            let dataHTML = `<tr>
+              <th>Buyer Id</th>
+                <th>Login Id</th>
+                <th>Name</th>
+                <th>Email Id</th>
+                <th>Address</th>
+                <th>Phone No</th>
+          </tr>`;
+            for (let i = 0; i < data.length; i++) {
+                dataHTML += `<tr> 
+                  <td>${data[i].B_ID} </td>
+            <td>${data[i].Login_ID} </td> 
+            <td>${data[i].B_Name} </td>
+            <td>${data[i].B_Email_ID} </td>
+            <td>${data[i].B_Address}</td>
+            <td>${data[i].B_Phone_No}</td>
+            </tr>`
+            }
+            tableBody.innerHTML = dataHTML;
+        })
+}
+  </script>
 </body>
 
 </html>

@@ -48,7 +48,7 @@ const handleGoat = () => {
             <td>${data[i].G_Status} </td>
             </tr>`
             }
-            console.log(dataHTML)
+
             tableBody.innerHTML = dataHTML;
         })
 }
@@ -72,10 +72,10 @@ const handleChicken = () => {
             <td>${data[i].ShedNo} </td>
             </tr>`
             }
-            console.log(dataHTML)
+
             tableBody.innerHTML = dataHTML;
         })
-    console.log("click")
+    
 }
 
 const handleDuck = () => {
@@ -97,10 +97,10 @@ const handleDuck = () => {
             <td>${data[i].ShedNo} </td>
             </tr>`
             }
-            console.log(dataHTML)
+
             tableBody.innerHTML = dataHTML;
         })
-    console.log("click")
+    
 }
 const handleFish = () => {
     fetch("http://localhost:2800/fish")
@@ -122,10 +122,10 @@ const handleFish = () => {
             <td>${data[i].PondNo}</td>
             </tr>`
             }
-            console.log(dataHTML)
+
             tableBody.innerHTML = dataHTML;
         })
-    console.log("click")
+    
 }
 
 // equipmentTable
@@ -146,10 +146,10 @@ const handleEquipment = () => {
             <td>${data[i].Br_ID} </td>
             </tr>`
             }
-            console.log(dataHTML)
+
             tableBody.innerHTML = dataHTML;
         })
-    console.log("click")
+    
 }
 const handleproduct = () => {
     fetch("http://localhost:2800/avlproduct")
@@ -167,10 +167,10 @@ const handleproduct = () => {
             <td>${data[i].P_Price}</td>
             </tr>`
             }
-            console.log(dataHTML)
+
             tableBody.innerHTML = dataHTML;
         })
-    console.log("click")
+    
 }
 const handlesupply = () => {
     fetch("http://localhost:2800/supply")
@@ -189,17 +189,16 @@ const handlesupply = () => {
             <td>${data[i].Br_ID}</td>
             </tr>`
             }
-            console.log(dataHTML)
+
             tableBody.innerHTML = dataHTML;
         })
-    console.log("click")
+    
 }
 
 const handleEmployee = () => {
     fetch("http://localhost:2800/employee")
         .then(res => res.json())
         .then(data => {
-            console.log("employee", data)
             const tableBody = document.getElementById("employeeTable");
             let dataHTML = "";
             for (let i = 0; i < data.length; i++) {
@@ -213,17 +212,16 @@ const handleEmployee = () => {
             <td>${data[i].E_Role} </td>
             </tr>`
             }
-            console.log(dataHTML)
+
             tableBody.innerHTML = dataHTML;
         })
-    console.log("click")
+    
 }
 
 const handleMonitoring = () => {
     fetch("http://localhost:2800/monitoring")
         .then(res => res.json())
         .then(data => {
-            console.log("employee", data)
             const tableBody = document.getElementById("monitoringTable");
             let dataHTML = "";
             for (let i = 0; i < data.length; i++) {
@@ -236,16 +234,15 @@ const handleMonitoring = () => {
             <td>${data[i].Type}</td>
             </tr>`
             }
-            console.log(dataHTML)
+
             tableBody.innerHTML = dataHTML;
         })
-    console.log("click")
+    
 }
 const handleAdmin = () => {
     fetch("http://localhost:2800/admin")
         .then(res => res.json())
         .then(data => {
-            console.log("employee", data)
             const tableBody = document.getElementById("adminTable");
             let dataHTML = "";
             for (let i = 0; i < data.length; i++) {
@@ -258,17 +255,16 @@ const handleAdmin = () => {
             <td>${data[i].A_Phone_No}</td>
             </tr>`
             }
-            console.log(dataHTML)
+
             tableBody.innerHTML = dataHTML;
         })
-    console.log("click")
+    
 }
 
 const handleBuyer = () => {
     fetch("http://localhost:2800/buyer")
         .then(res => res.json())
         .then(data => {
-            console.log("employee", data)
             const tableBody = document.getElementById("buyerTable");
             let dataHTML = "";
             for (let i = 0; i < data.length; i++) {
@@ -281,10 +277,10 @@ const handleBuyer = () => {
             <td>${data[i].B_Phone_No}</td>
             </tr>`
             }
-            console.log(dataHTML)
+
             tableBody.innerHTML = dataHTML;
         })
-    console.log("click")
+    
 }
 
 
@@ -302,6 +298,9 @@ const cattleInsertFunc = () => {
 const cattleDeleteFunc = () => {
     document.getElementById("deleteCattleModal").style.display = "block"
 }
+const cattleQueryFunc = () => {
+    document.getElementById("queryCattleModal").style.display = "block"
+}
 
 // CATTLE ALL MODAL CLOSE
 const cattleUpdateClose = () => {
@@ -314,7 +313,9 @@ const cattleInsertClose = () => {
 const cattleDeleteClose = () => {
     document.getElementById("deleteCattleModal").style.display = "none"
 }
-
+const cattleQueryClose = () => {
+    document.getElementById("queryCattleModal").style.display = "none"
+}
 // UPDATE
 var cattleUpdateInfo = [];
 // GET COW ID
@@ -343,7 +344,7 @@ console.log(cattleUpdateInfo)
 
 // POST UPDATE DATA TO DATABASE
 const handleCattleUpdate = () => {
-    console.log("click")
+    
     fetch('http://localhost:2800/updatecattle', {
         method: 'POST',
         body: JSON.stringify(cattleUpdateInfo),
@@ -354,8 +355,8 @@ const handleCattleUpdate = () => {
         .then(response => response.json())
         .then(json => console.log(json))
         .catch(error => console.log(error));
-        document.getElementById("cattleUpdateModal").style.display = "none"
-        alert("Successfully Updated")
+    document.getElementById("cattleUpdateModal").style.display = "none"
+    alert("Successfully Updated")
 
 
 }
@@ -437,8 +438,8 @@ const handleCattleInsert = () => {
         .then(response => response.json())
         .then(json => console.log(json))
         .catch(error => console.log(error));
-        document.getElementById("cattleInsertModal").style.display = "none"
-        alert("Successfully Inserted")
+    document.getElementById("cattleInsertModal").style.display = "none"
+    alert("Successfully Inserted")
 
 }
 
@@ -462,15 +463,118 @@ const handleCattleDelete = () => {
         .then(response => response.json())
         .then(json => console.log(json))
         .catch(error => console.log(error));
-        document.getElementById("deleteCattleModal").style.display = "none"
-        alert("Successfully Deleted")
-
+    document.getElementById("deleteCattleModal").style.display = "none"
+    alert("Successfully Deleted")
 
 }
 
+// QUERY
+const q1 = []
+const cType = document.getElementById("cType");
+cType.addEventListener('blur', (e) => {
+    console.log(e.target.value);
+    q1[0] = e.target.value;
+    console.log(q1);
+})
+const handleCattleQuery1 = () => {
+    
+    // document.getElementById("cType").value = "";
+    fetch('http://localhost:2800/queryPost1', {
+        method: 'POST',
+        body: JSON.stringify(q1),
+        headers: {
+            "Content-type": "application/json; charset=UTF-8"
+        }
+    })
+        .then(response => response.json())
+        .then(json => console.log(json))
+        .catch(error => console.log(error));
 
+        fetch("http://localhost:2800/queryGet1")
+        .then(res => res.json())
+        .then(data => {
+            console.log("cattle", data)
+            const tableBody = document.getElementById("cattleQueryTable");
+            let dataHTML = `<tr>
+            <th>Cow ID</th>
+            <th>Branch ID</th>
+            <th>Cow Type</th>
+            <th>Gender</th>
+            <th>Color</th>
+            <th>Weight</th>
+            <th>Milk Production</th>
+            <th>Food Intake</th>
+            <th>Shed No</th>
+            <th>Status</th>
+          </tr>`;
+            for (let i = 0; i < data.length; i++) {
+                dataHTML += `<tr> 
+                <td>${data[i].Co_ID} </td>
+                <td>${data[i].Br_ID} </td> 
+                <td>${data[i].Co_Type} </td>
+                <td>${data[i].Co_Gender}</td>
+                <td>${data[i].Co_Color}</td>
+                <td>${data[i].Co_Weight} </td>
+                <td>${data[i].Co_MilkProduction} </td>
+                <td>${data[i].Co_FoodIntake} </td>
+                <td>${data[i].Co_Shed_No} </td>
+                <td>${data[i].Co_Status} </td>
+            </tr>`
+            }
+            tableBody.innerHTML = dataHTML;
+        })   
+}
 
+// QUERY2
+const handleCattleQuery2 = () => {  
+    console.log("qqq click")
+    fetch("http://localhost:2800/queryGet2")
+        .then(res => res.json())
+        .then(data => {
+            const {avgFood} = data[0];
+            console.log(data[0]) 
+            console.log(avgFood)  
+            document.getElementById("avgfood").innerHTML = avgFood;
+        })   
+}
 
+// QUERY3
+const handleCattleQuery3 = () => {
+    console.log("q3 click")
+    fetch("http://localhost:2800/queryGet3")
+        .then(res => res.json())
+        .then(data => {
+            console.log(data) 
+            const tableBody = document.getElementById("cattleQueryTable2");
+            let dataHTML = `<tr>
+            <th>Cow ID</th>
+            <th>Branch ID</th>
+            <th>Cow Type</th>
+            <th>Gender</th>
+            <th>Color</th>
+            <th>Weight</th>
+            <th>Milk Production</th>
+            <th>Food Intake</th>
+            <th>Shed No</th>
+            <th>Status</th>
+          </tr>`;
+            for (let i = 0; i < data.length; i++) {
+                dataHTML += `<tr> 
+                <td>${data[i].Co_ID} </td>
+                <td>${data[i].Br_ID} </td> 
+                <td>${data[i].Co_Type} </td>
+                <td>${data[i].Co_Gender}</td>
+                <td>${data[i].Co_Color}</td>
+                <td>${data[i].Co_Weight} </td>
+                <td>${data[i].Co_MilkProduction} </td>
+                <td>${data[i].Co_FoodIntake} </td>
+                <td>${data[i].Co_Shed_No} </td>
+                <td>${data[i].Co_Status} </td>
+            </tr>`
+            }
+            tableBody.innerHTML = dataHTML;
+        })   
+}
 // GOAT ALL MODAL SHOW
 const goatUpdateFunc = () => {
     document.getElementById("goatUpdateModal").style.display = "block"
@@ -521,7 +625,7 @@ console.log(goatUpdateInfo)
 
 // POST UPDATE DATA TO DATABASE
 const handleGoatUpdate = () => {
-    console.log("click")
+    
     fetch('http://localhost:2800/updategoat', {
         method: 'POST',
         body: JSON.stringify(goatUpdateInfo),
@@ -532,8 +636,8 @@ const handleGoatUpdate = () => {
         .then(response => response.json())
         .then(json => console.log(json))
         .catch(error => console.log(error));
-        document.getElementById("goatUpdateModal").style.display = "none"
-        alert("Successfully Updated");
+    document.getElementById("goatUpdateModal").style.display = "none"
+    alert("Successfully Updated");
 
 
 }
@@ -614,8 +718,8 @@ const handleGoatInsert = () => {
         .then(response => response.json())
         .then(json => console.log(json))
         .catch(error => console.log(error));
-        document.getElementById("goatInsertModal").style.display = "none"
-        alert("Successfully Inserted")
+    document.getElementById("goatInsertModal").style.display = "none"
+    alert("Successfully Inserted")
 }
 
 
@@ -638,7 +742,16 @@ const handleGoatDelete = () => {
         .then(response => response.json())
         .then(json => console.log(json))
         .catch(error => console.log(error));
-        document.getElementById("deleteGoatModal").style.display = "none";
-        alert("Successfully deleted")
+    document.getElementById("deleteGoatModal").style.display = "none";
+    alert("Successfully deleted")
 
 }
+
+// BUYER
+const buyerQueryFunc = () => {
+    console.log("b click")
+}
+// const x = () => {
+
+//     console.log("cl")
+// }

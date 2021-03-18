@@ -43,11 +43,11 @@ const signinWithEmailAndPassword = () => {
   const promise = auth.signInWithEmailAndPassword(email, password)
   .then(()=> {
     alert ("Succefully Signin");
-    if(email="rifa@gmail.com"){
+    if(email=="rifa@gmail.com"){
       location.replace("../branch.html")
     }
     else{
-      location.replace("../our_product.html")
+      location.replace("../online-shop.html")
     }
   })
   promise.catch(e => alert(e.message));

@@ -232,6 +232,106 @@ app.post ("/insertcattle", (req,res) => {
    console.log(req);
 })
 
+//QUERY1
+let qInfo = [];
+app.post("/queryPost1", (req,res) => {
+    qInfo = req.body;
+    console.log(req);
+    console.log("qInfo",qInfo)
+    // connection.query (`SELECT * FROM monitoring WHERE Co_Type=${req.body[0]}`, (error, rows,fields)=> {
+    //     if(!!error) {
+    //         console.log("error in query");
+    //     }
+    //     else{
+    //         console.log("successful query");
+    //         console.log(rows);
+    //         res.send(rows);
+    //     }
+    // })
+})
+
+app.get("/queryGet1", (req,res) => {
+    connection.query (`SELECT * FROM cow WHERE Co_Type= ?`, [qInfo[0]], (error, rows,fields)=> {
+        if(!!error) {
+            console.log("error in query");
+        }
+        else{
+            console.log("successful query");
+            console.log(rows);
+            res.send(rows);
+        }
+    })
+    console.log("query",qInfo);
+})
+
+
+// QUERY2
+app.get("/queryGet2", (req,res) => {
+    connection.query (`SELECT AVG(Co_FoodIntake) AS avgFood FROM cow `,  (error, rows,fields)=> {
+        if(!!error) {
+            console.log("error in query");
+        }
+        else{
+            console.log("successful query");
+            console.log(rows);
+
+            console.log("data",rows[0]);
+            res.send(rows);
+        }
+    })
+    console.log("query",bInfo);
+})
+// QUERY3
+app.get("/queryGet3", (req,res) => {
+    const status = "%H"
+    connection.query (`SELECT * FROM cow WHERE Co_Status LIKE ?`, [status] , (error, rows,fields)=> {
+        if(!!error) {
+            console.log("error in query");
+        }
+        else{
+            console.log("successful query");
+            console.log(rows);
+
+            console.log("data",rows[0]);
+            res.send(rows);
+        }
+    })
+    console.log("query",bInfo);
+})
+//BUYER
+let bInfo = [];
+app.post("/buyerQuery", (req,res) => {
+    bInfo = req.body;
+    console.log(req);
+    console.log("bInfo",bInfo)
+    // connection.query (`SELECT * FROM monitoring WHERE Co_Type=${req.body[0]}`, (error, rows,fields)=> {
+    //     if(!!error) {
+    //         console.log("error in query");
+    //     }
+    //     else{
+    //         console.log("successful query");
+    //         console.log(rows);
+    //         res.send(rows);
+    //     }
+    // })
+})
+
+app.get("/buyerQueryGet", (req,res) => {
+    connection.query (`SELECT * FROM buyer inner join b_email using (B_ID) inner join b_phone using (B_ID) WHERE B_ID= ?`, [bInfo[0]], (error, rows,fields)=> {
+        if(!!error) {
+            console.log("error in query");
+        }
+        else{
+            console.log("successful query");
+            console.log(rows);
+            res.send(rows);
+        }
+    })
+    console.log("query",bInfo);
+})
+
+
+
 //GOAT
 app.post ("/updategoat", (req,res) => {
     connection.query(`UPDATE goat SET ${req.body[1]}= ? WHERE G_ID = ?`, [req.body[2],req.body[0]], (error, rows,fields)=>{

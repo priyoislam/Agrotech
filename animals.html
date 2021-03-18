@@ -33,7 +33,7 @@
           <thead>
             <tr>
               <th>Cow ID</th>
-              <th>Breed</th>
+              <th>Branch ID</th>
               <th>Cow Type</th>
               <th>Gender</th>
               <th>Color</th>
@@ -65,7 +65,7 @@
                   <br>
                   <select class="form-control" style="width: 50%;" name="Cattle" id="cattleUpdate">
                     <option value="Co_ID">Select</option>
-                    <option value="Br_ID">Breed</option>
+                    <option value="Br_ID">Branch ID</option>
                     <option value="Co_Type">Cow Type</option>
                     <option value="Co_Color">Color</option>
                     <option value="Co_Gender">Gender</option>
@@ -102,7 +102,7 @@
                     required>
                 </div>
                 <div class="form-group">
-                  <label for="br" style=" font-weight: 800;">Breed</label>
+                  <label for="br" style=" font-weight: 800;">Branch ID</label>
                   <input id="br" type="text" class="form-control" style="width: 50%;" aria-describedby="emailHelp"
                     required>
                 </div>
@@ -158,8 +158,6 @@
           <button onclick="cattleDeleteFunc()" class="btn btn-success ml-3" id="deleteBtn">Delete</button>
           <div id="deleteCattleModal" class="modal">
 
-            <!-- Modal content -->
-
 
             <div class="modal-content">
               <span onclick="cattleDeleteClose()" class="close">&times;</span>
@@ -172,22 +170,98 @@
             </div>
 
           </div>
+
+
+
+          <!--QUERY-->
+          <button onclick="cattleQueryFunc()" class="btn btn-success ml-3" id="deleteBtn">Query</button>
+          <div id="queryCattleModal" class="modal">
+            <div class="modal-content">
+              <span onclick="cattleQueryClose()" class="close">&times;</span>
+              <!--QUERY1-->
+              <div class="row">
+                <div class="col-4">
+                  <div style="border: 2px solid #86c17a;border-radius: 5px;">
+                    <h4 class="m-3">Please enter the cow type which you want to search</h4>
+                    <div class="m-3">
+                      <label for="cType" style=" font-weight: 800;">Cow Type</label>
+                      <input id="cType" type="text" class="form-control" aria-describedby="emailHelp" required>
+                        <br>
+                        <button onclick="handleCattleQuery1()" style="width: 100%;" class="btn btn-success mb-3">Search</button>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="col-8">
+                  <div>
+                    <table id="customers" class="m-0">
+                      <thead>
+                      </thead>
+                      <tbody id="cattleQueryTable">
+                      </tbody>
+                    </table>
+                  </div>  
+                </div>
+              </div>
+
+              <!--QUERY2-->
+              
+
+              <div class="row mt-5">
+                <div class="col-4">
+                  <div style="border: 2px solid #86c17a;border-radius: 5px;">
+                    <h4 class="m-3">Healthy cattle</h4>
+                    <div class="m-3">
+                      <button onclick="handleCattleQuery3()" style="width: 100%;" class="btn btn-success mb-3">Search</button>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="col-8">
+                  <div>
+                    <table id="customers" class="m-0">
+                      <thead>                          
+                      </thead>
+                      <tbody id="cattleQueryTable2">
+                      </tbody>
+                    </table>
+                  </div>  
+                </div>
+              </div> 
+                            <!--QUERY3-->
+
+              <div class="row mt-5">
+                <div class="col-4">
+                  <div style="border: 2px solid #86c17a;border-radius: 5px;">
+                    <h4 class="m-3">Average Food Intake</h4>
+                    <div class="m-3">
+                        <button onclick="handleCattleQuery2()" style="width: 100%;" class="btn btn-success mb-3">Search</button>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="col-8" >
+                  <div>
+                    <div class="m-3">
+                      <h3 id="avgfood"></h3>
+                    </div>
+                  </div>  
+                </div>
+              </div>                  
+            </div>
+          </div>
         </div>
-
-
       </div>
-
-
     </div>
 
     <!--***** GOAT *****-->
-    <div style="width: 82%;" id="Goat" class="tabcontent mx-auto">
+    <div style="width: 84%;" id="Goat" class="tabcontent mx-auto">
       <h3>Goat Chart</h3>
       <table id="customers">
         <thead>
           <tr>
             <th>Goat ID</th>
-            <th>Breed</th>
+            <th>Branch ID</th>
             <th>Goat Type</th>
             <th>Color</th>
             <th>Gender</th>
@@ -219,7 +293,7 @@
                 <br>
                 <select class="form-control" style="width: 50%;" name="goat" id="goatUpdate">
                   <option value="G_ID">Select</option>
-                  <option value="Br_ID">Breed</option>
+                  <option value="Br_ID">Branch ID</option>
                   <option value="G_Type">Goat Type</option>
                   <option value="G_Color">Color</option>
                   <option value="G_Gender">Gender</option>
@@ -336,13 +410,13 @@
 
     </div>
 <!--***** CHICKEN *****-->
-    <div style="width: 82%;" id="Chicken" class="tabcontent mx-auto">
+    <div style="width: 84%;" id="Chicken" class="tabcontent mx-auto">
       <h3>Chicken Chart</h3>
       <table id="customers">
         <thead>
           <tr>
             <th>Chicken ID</th>
-            <th>Breed</th>
+            <th>Branch ID</th>
             <th>Chicekn Type</th>
             <th>Chicekn Number</th>
             <th>Chicken Breed</th>
@@ -362,13 +436,13 @@
     </div>
 
     <!-- ***** DUCK ***** -->
-    <div style="width: 82%;" id="Duck" class="tabcontent mx-auto">
+    <div style="width: 84%;" id="Duck" class="tabcontent mx-auto">
       <h3>Duck Chart</h3>
       <table id="customers">
         <thead>
           <tr>
             <th>Duck</th>
-            <th>Breed ID</th>
+            <th>Branch ID ID</th>
             <th>Duck Type</th>
             <th>Duck Number</th>
             <th>Duck Breed</th>
@@ -388,13 +462,13 @@
     </div>
 
     <!-- ***** FISH ***** -->
-    <div style="width: 82%;" id="Fish" class="tabcontent mx-auto">
+    <div style="width: 84%;" id="Fish" class="tabcontent mx-auto">
       <h3>Fishery Chart</h3>
       <table id="customers">
         <thead>
           <tr>
             <th>Fish ID</th>
-            <th>Breed</th>
+            <th>Branch ID</th>
             <th>Fish Type</th>
             <th>Food Intake</th>
             <th>Relasing Time</th>
