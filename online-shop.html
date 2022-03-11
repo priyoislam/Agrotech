@@ -17,67 +17,70 @@
     <script src="jscript/popper.min.js"></script>
     <script src="jscript/bootstrap.min.js"></script>
     <!-- <script src="jquery.js"></script>  -->
-
-    <script src="jscript/script.js"></script>
-
+    <script>
+        $(function(){
+          var includes = $('[data-include]');
+          jQuery.each(includes, function(){
+            var file = $(this).data('include') + '.html';
+            $(this).load(file);
+          });
+        });
+    </script>
+    
 
 </head>
-
 <body>
 
+  
+  <div class="container-fluid">
+            
+    <div class="row top-nav">
 
-    <div class="container-fluid">
+        <div class="col-md-6 top_left d-flex ">
 
-        <div class="row top-nav">
-
-            <div class="col-md-6 top_left d-flex ">
-
-                <a href="#"> <i class="fab fa-facebook-square p-2"></i></a>
-                <a href="#"> <i class="fab fa-youtube-square p-2"></i> </a>
-                <a href="#"> <i class="fab fa-twitter-square p-2"></i></a>
-
-            </div>
-        </div>
-
-        <div class="row header">
-
-            <div class="col-md-4">
-                <img class="logo" src="image/logo.png">
-            </div>
-
-            <div class="col-md-8 name">
-                <h1>Aggrotech Farming</h1>
-            </div>
+            <a href="#"> <i class="fab fa-facebook-square p-2"></i></a>
+            <a href="#"> <i class="fab fa-youtube-square p-2"></i> </a>
+            <a href="#"> <i class="fab fa-twitter-square p-2"></i></a>
 
         </div>
-        <div data-include="navbar"></div>
+    </div>
 
+    <div class="row header">
+
+        <div class="col-md-4">
+            <img class="logo" src="image/logo.png">
+        </div>
+
+        <div class="col-md-8 name">
+            <h1>Aggrotech Farming</h1>
+        </div>
+
+    </div>        <div data-include="navbar"></div>
+        
         <!-- <div data-include="inventory/product"></div>  -->
-        <div data-include="inventory/Butter.html"></div>
-        <div data-include="inventory/Cheese.html"></div>
-        <div data-include="inventory/Milk.html"></div>
+        <div data-include="inventory/Butter"></div> 
+        <div data-include="inventory/Cheese"></div> 
+        <div data-include="inventory/Milk"></div> 
 
-        <div data-include="inventory/Eggs-Chicken.html"></div>
-        <div data-include="inventory/Eggs-Duck.html"></div>
+        <div data-include="inventory/Eggs-Chicken"></div> 
+        <div data-include="inventory/Eggs-Duck"></div> 
+        
+        <div data-include="inventory/Rui"></div> 
+        <div data-include="inventory/MrigelFish"></div> 
+        <div data-include="inventory/KoiFish"></div> 
 
-        <div data-include="inventory/Rui.html"></div>
-        <div data-include="inventory/MrigelFish.html"></div>
-        <div data-include="inventory/KoiFish.html"></div>
+        <div data-include="inventory/Chicken"></div> 
+        <div data-include="inventory/Duck"></div> 
+        <div data-include="inventory/Beef"></div> 
+        <div data-include="inventory/Mutton"></div> 
 
-        <div data-include="inventory/Chicken.html"></div>
-        <div data-include="inventory/Duck.html"></div>
-        <div data-include="inventory/Beef.html"></div>
-        <div data-include="inventory/Mutton.html"></div>
-
+        
+    
 
 
+        <div data-include="footer"></div>
 
 
-        <div data-include="footer.html"></div>
-
-        <script>
-            includeHTML();
-        </script>
-
+   
 
 </body>

@@ -75,7 +75,7 @@ const handleChicken = () => {
 
             tableBody.innerHTML = dataHTML;
         })
-
+    
 }
 
 const handleDuck = () => {
@@ -100,7 +100,7 @@ const handleDuck = () => {
 
             tableBody.innerHTML = dataHTML;
         })
-
+    
 }
 const handleFish = () => {
     fetch("http://localhost:2800/fish")
@@ -125,7 +125,7 @@ const handleFish = () => {
 
             tableBody.innerHTML = dataHTML;
         })
-
+    
 }
 
 // equipmentTable
@@ -149,7 +149,7 @@ const handleEquipment = () => {
 
             tableBody.innerHTML = dataHTML;
         })
-
+    
 }
 const handleproduct = () => {
     fetch("http://localhost:2800/avlproduct")
@@ -170,7 +170,7 @@ const handleproduct = () => {
 
             tableBody.innerHTML = dataHTML;
         })
-
+    
 }
 const handlesupply = () => {
     fetch("http://localhost:2800/supply")
@@ -192,7 +192,7 @@ const handlesupply = () => {
 
             tableBody.innerHTML = dataHTML;
         })
-
+    
 }
 
 const handleEmployee = () => {
@@ -215,7 +215,7 @@ const handleEmployee = () => {
 
             tableBody.innerHTML = dataHTML;
         })
-
+    
 }
 
 const handleMonitoring = () => {
@@ -237,7 +237,7 @@ const handleMonitoring = () => {
 
             tableBody.innerHTML = dataHTML;
         })
-
+    
 }
 const handleAdmin = () => {
     fetch("http://localhost:2800/admin")
@@ -258,7 +258,7 @@ const handleAdmin = () => {
 
             tableBody.innerHTML = dataHTML;
         })
-
+    
 }
 
 const handleBuyer = () => {
@@ -280,7 +280,7 @@ const handleBuyer = () => {
 
             tableBody.innerHTML = dataHTML;
         })
-
+    
 }
 
 
@@ -314,9 +314,9 @@ const cattleDeleteClose = () => {
     document.getElementById("deleteCattleModal").style.display = "none"
 }
 const cattleQueryClose = () => {
-        document.getElementById("queryCattleModal").style.display = "none"
-    }
-    // UPDATE
+    document.getElementById("queryCattleModal").style.display = "none"
+}
+// UPDATE
 var cattleUpdateInfo = [];
 // GET COW ID
 const CowID = document.getElementById("C_ID");
@@ -344,14 +344,14 @@ console.log(cattleUpdateInfo)
 
 // POST UPDATE DATA TO DATABASE
 const handleCattleUpdate = () => {
-
+    
     fetch('http://localhost:2800/updatecattle', {
-            method: 'POST',
-            body: JSON.stringify(cattleUpdateInfo),
-            headers: {
-                "Content-type": "application/json; charset=UTF-8"
-            }
-        })
+        method: 'POST',
+        body: JSON.stringify(cattleUpdateInfo),
+        headers: {
+            "Content-type": "application/json; charset=UTF-8"
+        }
+    })
         .then(response => response.json())
         .then(json => console.log(json))
         .catch(error => console.log(error));
@@ -429,12 +429,12 @@ status.addEventListener('blur', (e) => {
 const handleCattleInsert = () => {
     console.log("INSERT click")
     fetch('http://localhost:2800/insertcattle', {
-            method: 'POST',
-            body: JSON.stringify(insertInfo),
-            headers: {
-                "Content-type": "application/json; charset=UTF-8"
-            }
-        })
+        method: 'POST',
+        body: JSON.stringify(insertInfo),
+        headers: {
+            "Content-type": "application/json; charset=UTF-8"
+        }
+    })
         .then(response => response.json())
         .then(json => console.log(json))
         .catch(error => console.log(error));
@@ -454,12 +454,12 @@ cId.addEventListener('blur', (e) => {
 const handleCattleDelete = () => {
     console.log("INSERT click")
     fetch('http://localhost:2800/deletecattle', {
-            method: 'DELETE',
-            body: JSON.stringify(deleteInfo),
-            headers: {
-                "Content-type": "application/json; charset=UTF-8"
-            }
-        })
+        method: 'DELETE',
+        body: JSON.stringify(deleteInfo),
+        headers: {
+            "Content-type": "application/json; charset=UTF-8"
+        }
+    })
         .then(response => response.json())
         .then(json => console.log(json))
         .catch(error => console.log(error));
@@ -477,20 +477,20 @@ cType.addEventListener('blur', (e) => {
     console.log(q1);
 })
 const handleCattleQuery1 = () => {
-
+    
     // document.getElementById("cType").value = "";
     fetch('http://localhost:2800/queryPost1', {
-            method: 'POST',
-            body: JSON.stringify(q1),
-            headers: {
-                "Content-type": "application/json; charset=UTF-8"
-            }
-        })
+        method: 'POST',
+        body: JSON.stringify(q1),
+        headers: {
+            "Content-type": "application/json; charset=UTF-8"
+        }
+    })
         .then(response => response.json())
         .then(json => console.log(json))
         .catch(error => console.log(error));
 
-    fetch("http://localhost:2800/queryGet1")
+        fetch("http://localhost:2800/queryGet1")
         .then(res => res.json())
         .then(data => {
             console.log("cattle", data)
@@ -522,31 +522,31 @@ const handleCattleQuery1 = () => {
             </tr>`
             }
             tableBody.innerHTML = dataHTML;
-        })
+        })   
 }
 
 // QUERY2
-const handleCattleQuery2 = () => {
+const handleCattleQuery2 = () => {  
     console.log("qqq click")
     fetch("http://localhost:2800/queryGet2")
         .then(res => res.json())
         .then(data => {
-            const { avgFood } = data[0];
-            console.log(data[0])
-            console.log(avgFood)
+            const {avgFood} = data[0];
+            console.log(data[0]) 
+            console.log(avgFood)  
             document.getElementById("avgfood").innerHTML = avgFood;
-        })
+        })   
 }
 
 // QUERY3
 const handleCattleQuery3 = () => {
-        console.log("q3 click")
-        fetch("http://localhost:2800/queryGet3")
-            .then(res => res.json())
-            .then(data => {
-                console.log(data)
-                const tableBody = document.getElementById("cattleQueryTable2");
-                let dataHTML = `<tr>
+    console.log("q3 click")
+    fetch("http://localhost:2800/queryGet3")
+        .then(res => res.json())
+        .then(data => {
+            console.log(data) 
+            const tableBody = document.getElementById("cattleQueryTable2");
+            let dataHTML = `<tr>
             <th>Cow ID</th>
             <th>Branch ID</th>
             <th>Cow Type</th>
@@ -558,8 +558,8 @@ const handleCattleQuery3 = () => {
             <th>Shed No</th>
             <th>Status</th>
           </tr>`;
-                for (let i = 0; i < data.length; i++) {
-                    dataHTML += `<tr> 
+            for (let i = 0; i < data.length; i++) {
+                dataHTML += `<tr> 
                 <td>${data[i].Co_ID} </td>
                 <td>${data[i].Br_ID} </td> 
                 <td>${data[i].Co_Type} </td>
@@ -571,11 +571,11 @@ const handleCattleQuery3 = () => {
                 <td>${data[i].Co_Shed_No} </td>
                 <td>${data[i].Co_Status} </td>
             </tr>`
-                }
-                tableBody.innerHTML = dataHTML;
-            })
-    }
-    // GOAT ALL MODAL SHOW
+            }
+            tableBody.innerHTML = dataHTML;
+        })   
+}
+// GOAT ALL MODAL SHOW
 const goatUpdateFunc = () => {
     document.getElementById("goatUpdateModal").style.display = "block"
     console.log("updateclick")
@@ -595,9 +595,9 @@ const goatInsertClose = () => {
     document.getElementById("goatInsertModal").style.display = "none"
 }
 const goatDeleteClose = () => {
-        document.getElementById("deleteGoatModal").style.display = "none"
-    }
-    // UPDATE
+    document.getElementById("deleteGoatModal").style.display = "none"
+}
+// UPDATE
 var goatUpdateInfo = [];
 // GET GOAT ID
 const gID = document.getElementById("GID");
@@ -625,14 +625,14 @@ console.log(goatUpdateInfo)
 
 // POST UPDATE DATA TO DATABASE
 const handleGoatUpdate = () => {
-
+    
     fetch('http://localhost:2800/updategoat', {
-            method: 'POST',
-            body: JSON.stringify(goatUpdateInfo),
-            headers: {
-                "Content-type": "application/json; charset=UTF-8"
-            }
-        })
+        method: 'POST',
+        body: JSON.stringify(goatUpdateInfo),
+        headers: {
+            "Content-type": "application/json; charset=UTF-8"
+        }
+    })
         .then(response => response.json())
         .then(json => console.log(json))
         .catch(error => console.log(error));
@@ -709,12 +709,12 @@ g_status.addEventListener('blur', (e) => {
 const handleGoatInsert = () => {
     console.log("INSERT click")
     fetch('http://localhost:2800/insertgoat', {
-            method: 'POST',
-            body: JSON.stringify(insertInfo),
-            headers: {
-                "Content-type": "application/json; charset=UTF-8"
-            }
-        })
+        method: 'POST',
+        body: JSON.stringify(insertInfo),
+        headers: {
+            "Content-type": "application/json; charset=UTF-8"
+        }
+    })
         .then(response => response.json())
         .then(json => console.log(json))
         .catch(error => console.log(error));
@@ -733,12 +733,12 @@ gId.addEventListener('blur', (e) => {
 const handleGoatDelete = () => {
     console.log("INSERT click")
     fetch('http://localhost:2800/deletegoat', {
-            method: 'DELETE',
-            body: JSON.stringify(goatDeleteInfo),
-            headers: {
-                "Content-type": "application/json; charset=UTF-8"
-            }
-        })
+        method: 'DELETE',
+        body: JSON.stringify(goatDeleteInfo),
+        headers: {
+            "Content-type": "application/json; charset=UTF-8"
+        }
+    })
         .then(response => response.json())
         .then(json => console.log(json))
         .catch(error => console.log(error));
@@ -749,38 +749,9 @@ const handleGoatDelete = () => {
 
 // BUYER
 const buyerQueryFunc = () => {
-        console.log("b click")
-    }
-    // const x = () => {
+    console.log("b click")
+}
+// const x = () => {
 
 //     console.log("cl")
 // }
-
-
-function includeHTML() {
-    var z, i, elmnt, file, xhttp;
-    /* Loop through a collection of all HTML elements: */
-    z = document.getElementsByTagName("*");
-    for (i = 0; i < z.length; i++) {
-        elmnt = z[i];
-        /*search for elements with a certain atrribute:*/
-        file = elmnt.getAttribute("data-include");
-        if (file) {
-            /* Make an HTTP request using the attribute value as the file name: */
-            xhttp = new XMLHttpRequest();
-            xhttp.onreadystatechange = function() {
-                if (this.readyState == 4) {
-                    if (this.status == 200) { elmnt.innerHTML = this.responseText; }
-                    if (this.status == 404) { elmnt.innerHTML = "Page not found."; }
-                    /* Remove the attribute, and call this function once more: */
-                    elmnt.removeAttribute("data-include");
-                    includeHTML();
-                }
-            }
-            xhttp.open("GET", file, true);
-            xhttp.send();
-            /* Exit the function: */
-            return;
-        }
-    }
-}
