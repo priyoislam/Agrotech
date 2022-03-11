@@ -16,35 +16,29 @@
     <script src="jscript/jquery.min.js"></script>
     <script src="jscript/popper.min.js"></script>
     <script src="jscript/bootstrap.min.js"></script>
+    <script src="jscript/script.js"></script>
+</head>
+
+<body>
+
+    <div data-include="header.html"></div>
+    <div data-include="navbar.html"></div>
+
+
+
+
+
+
+
+
+
+
+
+    <div data-include="footer.html"></div>
     <script>
-        $(function(){
-          var includes = $('[data-include]');
-          jQuery.each(includes, function(){
-            var file = $(this).data('include') + '.html';
-            $(this).load(file);
-          });
-        });
+        includeHTML();
     </script>
 
-</head>
-<body>
-  
-        <div data-include="header"></div>
-        <div data-include="navbar"></div>
-            
 
-
-
-
-
-
-        
-    
-
-
-        <div data-include="footer"></div>
-
-
-   
 
 </body>

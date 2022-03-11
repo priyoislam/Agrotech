@@ -17,22 +17,15 @@
     <script src="jscript/jquery.min.js"></script>
     <script src="jscript/popper.min.js"></script>
     <script src="jscript/bootstrap.min.js"></script>
-    <script>
-        $(function() {
-            var includes = $('[data-include]');
-            jQuery.each(includes, function() {
-                var file = $(this).data('include') + '.html';
-                $(this).load(file);
-            });
-        });
-    </script>
+    <script src="jscript/script.js"></script>
+
 
 </head>
 
 <body>
 
-    <div data-include="header"></div>
-    <div data-include="nav2"></div>
+    <div data-include="header.html"></div>
+    <div data-include="nav2.html"></div>
 
     <!-- <h4>Administrative Data</h4> -->
     <!--ADMIN-->
@@ -131,7 +124,10 @@
 
 
             <br> <br>
-            <div data-include="footer"></div>
+            <div data-include="footer.html"></div>
+            <script>
+                includeHTML();
+            </script>
             <script>
                 const bQueryFunc = () => {
                     document.getElementById("queryBuyerModal").style.display = "block"
