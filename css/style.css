@@ -121,6 +121,7 @@ a {
 .footer .f_logo img
 {
     height: 200px;
+    opacity: 100%;
 }
 .copyright
 {
@@ -129,8 +130,6 @@ a {
     color: white;
 
 }
-
-
 
 
 
